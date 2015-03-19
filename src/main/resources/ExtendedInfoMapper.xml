@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cpaladin.study.mybatis.UserExtendedInfoMapper">
-    <select id="selectExtendedInfo" resultType="com.cpaladin.study.mybatis.UserExtendedInfo">
-        select * from xlgame_201006.extendedinfo_0 where gameinternalno = #{gameinternalno}
-    </select>
-</mapper>
