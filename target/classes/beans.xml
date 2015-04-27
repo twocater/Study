@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    
+    <bean id="foo" class="com.cpaladin.study.spring.bean.Foo" depends-on="bar,baz" lazy-init="true">
+        <constructor-arg ref="bar"/>
+        <constructor-arg ref="baz"/>
+    </bean>
+    <bean id="bar" class="com.cpaladin.study.spring.bean.Bar"/>
+    <bean id="baz" class="com.cpaladin.study.spring.bean.Baz"/>
+    <bean id="city" class="com.cpaladin.study.spring.bean.City"/>
+    
+    <bean id="user" class="com.cpaladin.study.spring.bean.User" init-method="init" destroy-method="cleanup">
+        <constructor-arg type="int" value="100"/>
+        <constructor-arg type="java.lang.String" value="abc"/>
+        <property name="address" value="adddddddd" />
+        <property name="city" ref="city"/>
+        <property name="adminEmails">
+            <props>
+                <prop key="administrator">administrator@example.org</prop>
+                <prop key="support">support@example.org</prop>
+                <prop key="development">development@example.org</prop>
+            </props>
+        </property>
+        <property name="someList">
+            <list>
+                <value>adasdfsdfasdf</value>
+                <ref bean="city"/>
+            </list>
+        </property>
+        <property name="someMap">
+            <map>
+                <entry key="aa" value="adf" />
+                <entry key="aaa" value-ref="city" />
+            </map>
+        </property>
+        <property name="someSet">
+            <set>
+                <value>asdfsd</value>
+                <ref bean="city"/>
+            </set>
+        </property>
+   
+    </bean>
+    
+    <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://10.11.200.90:3306/mydb" />
+        <property name="username" value="root" />
+        <property name="password" value="sd-9898w" />
+    </bean>
+    
+    <bean id="mappings" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="properties">
+            <value>
+                jdbc.driver.className=com.mysql.jdbc.Driver
+                jdbc.url=jdbc:mysql://localhost:3306/mydb
+            </value>
+        </property>
+    </bean>
+    
+    
+    
+</beans>
