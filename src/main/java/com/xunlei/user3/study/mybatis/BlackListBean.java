@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.xunlei.user3.study.mybatis.bean;
+package com.xunlei.user3.study.mybatis;
 
 /**
  *

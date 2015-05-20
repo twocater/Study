@@ -4,12 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com.xunlei.user3.mybatis.bean.BlackListBean" alias="BlackListBean"/>
+        <typeAlias type="com.xunlei.user3.study.mybatis.BlackListBean" alias="BlackListBean"/>
     </typeAliases>   
     <environments default="master_db">
         <environment id="master_db">
             <transactionManager type="JDBC" />
-            <dataSource type="com.xunlei.user3.mybatis.C3P0DataSourceFactory">
+            <dataSource type="com.xunlei.user3.study.mybatis.C3P0DataSourceFactory">
                 <property name="driverClass" value="com.mysql.jdbc.Driver" />
                 <property name="jdbcUrl" value="jdbc:mysql://10.11.200.90:3306/gameuser?useUnicode=true&amp;characterEncoding=utf8&amp;allowMultiQueries=true" />
                 <property name="user" value="root" />
@@ -41,6 +41,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="BlackListMapper.xml" />
+        <mapper resource="mappers/BlackListMapper.xml" />
     </mappers>
 </configuration>
